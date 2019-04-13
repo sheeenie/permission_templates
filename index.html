@@ -1,34 +1,108 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Practical Todos</title>
-    <link id="favicon" rel="icon" href="https://cdn.gomix.com/2bdfb3f8-05ef-4035-a06e-2043962a3a13%2Ffavicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <h1>Todo List</h1>
+  <head>    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
 
+  </head>  
+  <body>
+    <h1>Templates</h1>
+    
     <div>
-      <button onclick="handlers.toggleAll()">Toggle All</button>
+        <label>Creator's Name/Social Media username:</label>
+        <input id="CreatorsName"/>
+    </div>
+    
+    <div id="SMPagesDiscovered">
+        <label>Select the social media pages from which you found the creators' content: </label>
+        <input type="checkbox" value="Instagram"/> Instagram
+        <input type="checkbox" value="Twitter"/> Twitter
+        <input type="checkbox" value="Facebook"/> Facebook
     </div>
     
     <div>
-      <button onclick="handlers.addTodo()">Add</button>
-      <input id="addTodoTextInput" type="text">
+        <label>Content link(s) you would like to share (maximum 10): </label>
+        <ul id="ContentLinks">
+          <input type="text"/>
+          <input type="text"/>
+          <input type="text"/>
+          <input type="text"/>
+          <input type="text"/>
+          <input type="text"/>
+          <input type="text"/>
+          <input type="text"/>
+          <input type="text"/>
+          <input type="text"/>
+        </ul>      
+      
+    </div>     
+    
+    <div id="SMPagesToBeShared">
+        <label>Select the social media pages you would like to share the creators' content on: </label>
+        <input type="checkbox" value="Instagram"/> Instagram
+        <input type="checkbox" value="Twitter"/> Twitter
+        <input type="checkbox" value="Facebook"/> Facebook
     </div>
     
     <div>
-      <button onclick="handlers.changeTodo()">Change Todo</button>
-      <input id="changeTodoPositionInput" type="number">
-      <input id="changeTodoTextInput" type="text">
+        <label>Language: </label>
+        <select id ="Language">
+          <option value="engTemplate">English</option>
+          <option value="jpnTemplate">Japanese</option>
+          <option value="chitemplate">Chinese</option>
+          <option value="spaTemplate">Spanish</option>
+        </select>
     </div>
     
-    <div>
-      <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
-      <input id="toggleCompletedPositionInput" type="number">
-    </div>
+    <br>
+    <button onclick="generateTemplate.generateButton()">Generate Template</button>
     
-    <ul>
-    </ul>
-    <script src="/client.js"></script>
+    <div id="templates">
+      <p id="engTemplate" style="display:none">
+        Hi <span name="name"></span>!<br><br>
+        We are the 9GAG editorial team.<br>
+        We came across your work on <span name="SMPagesDiscovered"></span>, and find it really awesome!<br>
+        <span name="contentLinks"></span><br>
+        Is it possible for you to give us permission to share it on our <span name="SMPagesToBeShared"></span>?<br><br>
+        We will surely credit you back!<br>
+        Can’t wait to hear from you soon.<br><br>
+        Cheers,<br>
+        Team 9GAG
+      </p>
+
+      <p id="jpnTemplate" style="display:none">
+        <span name="name"></span> 様、<br><br>
+        初めまして。<br>
+        9GAG編集部と申します。<br>
+        突然のメッセージ、失礼致します。<br><br>
+        <span name="name"></span>様の<span name="SMPagesDiscovered"></span>を拝見し、<span name="name"></span>様の写真動画:<br>
+        <span name="contentLinks"></span><br>
+        をぜひ私どもの<span name="SMPagesToBeShared"></span>にてご紹介させて頂くご連絡させて頂きました。<br>
+        ご許可を頂くことはできますでしょうか。<br>
+        必ず、著作者として<span name="name"></span>様のユーザーネームを表記させて頂きます。<br><br>
+        お返事をお待ちしております。<br>
+        どうぞよろしくお願い致します。<br><br>
+        9GAG編集部
+      </p>
+
+      <p id="spaTemplate" style="display:none">
+        NULL
+      </p>
+
+      <p id="chitemplate" style="display:none">
+        <span name="name"></span> <br><br>
+        你好, 我們是9GAG編輯部。<br>
+        我們的用戶及編輯部都很喜歡你<span name="SMPagesDiscovered"></span>帳號的貼文，如：<br>
+        <span name="contentLinks"></span><br>
+        請問我們能否轉載你的貼文到9GAG的平台包括：<br>
+        <span name="SMPagesToBeShared"></span><br><br>
+        我們必定會於載貼文中註明出處及你的<span name="SMPagesDiscovered"></span>帳號。<br><br>
+        希望你能儘快回覆我們。<br><br>
+        9GAG 編輯部
+      </p>
+    </div>
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js"></script>
   </body>
 </html>
