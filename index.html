@@ -9,39 +9,50 @@
     <h1>Templates</h1>
     
     <div>
-        <label>Creator's Name/Social Media username:</label>
-        <input id="CreatorsName"/>
+        <label>Creators' Name(s)/Social Media username(s):</label>
+        <ul id="CreatorsNames">
+          <input type="text"/>
+        </ul>          
+        <button onclick="handlers.createCreatorsName_textArea()">Add More Names</button><br><br>
     </div>
     
     <div id="SMPagesDiscovered">
-        <label>Select the social media pages from which you found the creators' content: </label>
-        <input type="checkbox" value="Instagram"/> Instagram
-        <input type="checkbox" value="Twitter"/> Twitter
-        <input type="checkbox" value="Facebook"/> Facebook
+        <label>Select the social media pages from which you found the creators' content:</label><br>
+        <input type="checkbox" value="Instagram"/> Instagram<br>
+        <input type="checkbox" value="Twitter"/> Twitter<br>
+        <input type="checkbox" value="Facebook"/> Facebook<br>
+        <input type="checkbox" value="YouTube"/> YouTube<br>
+        <input type="checkbox" value="Artstation"/> Artstation<br>
+        <input type="checkbox" value="Weibo"/> Weibo<br><br>
     </div>
     
     <div>
-        <label>Content link(s) you would like to share (maximum 10): </label>
+        <label>Content link(s) you would like to share: </label>
         <ul id="ContentLinks">
           <input type="text"/>
-          <input type="text"/>
-          <input type="text"/>
-          <input type="text"/>
-          <input type="text"/>
-          <input type="text"/>
-          <input type="text"/>
-          <input type="text"/>
-          <input type="text"/>
-          <input type="text"/>
-        </ul>      
+        </ul>          
+        <button onclick="handlers.createSMlinks_textArea()">Add More Links</button><br><br>   
       
-    </div>     
+    </div>  
+    
+    <div id="pages">
+        <label>Which page(s) will you share the content on? </label><br>
+        <input type="checkbox" value="9GAG"/> 9GAG<br>
+        <input type="checkbox" value="Meowed"/> Meowed<br>        
+        <input type="checkbox" value="Barked"/> Barked<br>
+        <input type="checkbox" value="Doodles"/> Doodles<br>        
+        <input type="checkbox" value="TakeMyMoney"/> Take My Money<br>
+        <input type="checkbox" value="Couple"/> Couple<br>     
+        <input type="checkbox" value="Voyaged"/> Voyaged<br>
+        Others: <input type="text"/><br><br>
+    </div>
     
     <div id="SMPagesToBeShared">
-        <label>Select the social media pages you would like to share the creators' content on: </label>
-        <input type="checkbox" value="Instagram"/> Instagram
-        <input type="checkbox" value="Twitter"/> Twitter
-        <input type="checkbox" value="Facebook"/> Facebook
+        <label>Select the social media pages you would like to share the creators' content on: </label><br>
+        <input type="checkbox" value="Instagram"/> Instagram<br>
+        <input type="checkbox" value="Twitter"/> Twitter<br>
+        <input type="checkbox" value="Facebook"/> Facebook<br><br>
+        
     </div>
     
     <div>
@@ -52,8 +63,7 @@
           <option value="chitemplate">Chinese</option>
           <option value="spaTemplate">Spanish</option>
         </select>
-    </div>
-    
+    </div>    
     <br>
     <button onclick="generateTemplate.generateButton()">Generate Template</button>
     
@@ -63,7 +73,7 @@
         We are the 9GAG editorial team.<br>
         We came across your work on <span name="SMPagesDiscovered"></span>, and find it really awesome!<br>
         <span name="contentLinks"></span><br>
-        Is it possible for you to give us permission to share it on our <span name="SMPagesToBeShared"></span>?<br><br>
+        Is it possible for you to give us permission to share it on our <span name="pages"></span>, on <span name="SMPagesToBeShared"></span>?<br><br>
         We will surely credit you back!<br>
         Can’t wait to hear from you soon.<br><br>
         Cheers,<br>
@@ -77,7 +87,7 @@
         突然のメッセージ、失礼致します。<br><br>
         <span name="name"></span>様の<span name="SMPagesDiscovered"></span>を拝見し、<span name="name"></span>様の写真動画:<br>
         <span name="contentLinks"></span><br>
-        をぜひ私どもの<span name="SMPagesToBeShared"></span>にてご紹介させて頂くご連絡させて頂きました。<br>
+        をぜひ私どもの<span name="pages"></span>（<span name="SMPagesToBeShared"></span>）にてご紹介させて頂くご連絡させて頂きました。<br>
         ご許可を頂くことはできますでしょうか。<br>
         必ず、著作者として<span name="name"></span>様のユーザーネームを表記させて頂きます。<br><br>
         お返事をお待ちしております。<br>
@@ -86,22 +96,29 @@
       </p>
 
       <p id="spaTemplate" style="display:none">
-        NULL
+        ¡Hola <span name="name"></span>!<br><br>
+        Somos equipo 9GAG y nos encantó tu contenido:<br>
+        <span name="contentLinks"></span><br>
+        ¿Nos preguntamos si sería posible que lo publiquemos en nuestra página de <span name="pages"></span> (<span name="SMPagesToBeShared"></span>) con crédito a tu cuenta.<br>
+        Quedo a la espera de su respuesta.<br><br>
+        9GAG Team
       </p>
 
       <p id="chitemplate" style="display:none">
         <span name="name"></span> <br><br>
-        你好, 我們是9GAG編輯部。<br>
-        我們的用戶及編輯部都很喜歡你<span name="SMPagesDiscovered"></span>帳號的貼文，如：<br>
+        你好 !<br>
+        我們是9GAG編輯部。<br>
+        你的作品實在太棒了 ！<br>
+        我們希望您可以准許我們再我們<span name="pages"></span>的<span name="SMPagesToBeShared"></span>上面分享您的這作品:<br>
         <span name="contentLinks"></span><br>
-        請問我們能否轉載你的貼文到9GAG的平台包括：<br>
-        <span name="SMPagesToBeShared"></span><br><br>
-        我們必定會於載貼文中註明出處及你的<span name="SMPagesDiscovered"></span>帳號。<br><br>
-        希望你能儘快回覆我們。<br><br>
+        <br><br>
+        當然，我們會標明您是作者和列出來源，<span name="SMPagesDiscovered"></span>的連結。<br><br>
+        期待你的回信 !<br><br>
         9GAG 編輯部
       </p>
     </div>
-
+    <br>
+    <button onclick="generateTemplate.copy()">Copy Text</button>   
     <!-- import the webpage's javascript file -->
     <script src="/script.js"></script>
   </body>
